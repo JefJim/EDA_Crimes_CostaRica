@@ -16,6 +16,7 @@ Este proyecto realiza un análisis exploratorio de datos (EDA) sobre los crímen
 - **Fuente**: Kaggle – [Crime data in Costa Rica](https://www.kaggle.com/datasets/isaacpm21/crime-data-in-costa-rica-years-2020-to-2022)
 - **Columnas principales**:
   - `CRIMEN_TIPO`, `CRIMEN_FECHA`, `VICTIMA_GRUPO_ETARIO`, `LUGAR_PROVINCIA`, `LUGAR_CANTON`, `LUGAR_DISTRITO`
+  **Cobertura**: Años 2020, 2021 y 2022
   - Todas las columnas son categóricas
   - Dataset no contiene valores nulos
 
@@ -37,6 +38,22 @@ Este proyecto realiza un análisis exploratorio de datos (EDA) sobre los crímen
 
 ---
 
+## Mapa Interactivo + Clustering Geográfico
+
+- Se necesita instalar **Folium** con el comando `pip install folium` y **Geopandas** para convertir un archivo geojson a GeoDataFrame `pip install geopandas`
+
+Se construyó un **mapa interactivo con Folium** que incluye:
+- Un **círculo por distrito** con tamaño proporcional a la cantidad de crímenes
+- **Clusters geográficos** usando KMeans (agrupación de distritos por cercanía)
+- En cada popup se muestra:
+  - Nombre del distrito
+  - Total de crímenes reportados
+  - Número de cluster asignado
+  - **Top 4 tipos de crímenes** más frecuentes en ese distrito
+  Mapa generado: [`mapa_crimenes_con_top4.html`](../Notebooks/mapa_crimenes_con_top4.html)
+
+---
+
 ## Hallazgos Relevantes
 
 - Los crímenes más reportados fueron `Hurto`.
@@ -49,23 +66,32 @@ Este proyecto realiza un análisis exploratorio de datos (EDA) sobre los crímen
 ## Tecnologías Usadas
 
 - Python
-- Pandas
+- Pandas & GeoPandas
 - Matplotlib / Seaborn
+- Scikit-learn (KMeans)
+- Folium (mapas interactivos)
 - JupyterLab
 
 ---
 
-## Próximos pasos (opcional)
+## ¿Cómo correr este proyecto?
 
-- Crear un dashboard interactivo con Streamlit o Power BI
-- Hacer clustering geográfico con K-Means y coordenadas
-- Comparar crimen vs pobreza o ingreso por zona (si se encuentra otro dataset)
+Cloná el repositorio:
+```bash
+  git clone https://github.com/JefJim/EDA_Crimes_CostaRica.git
+  pip install folium
+  pip install geopandas
+  cd Notebooks
+  python Clustering_K-Means.py
+```
+
+O bien, abrí directamente el mapa generado "../Notebooks/mapa_crimenes_con_top4.html" en tu navegador favorito.
 
 ---
 
 ## ✍️ Autor
 
 - Jefry Jiménez  
-- [LinkedIn](https://www.linkedin.com/in/TULINK)  
-- [Portafolio (si lo tenés)](https://TUPORTAFOLIO.com)
+- [LinkedIn](https://www.linkedin.com/in/jefry-jim%C3%A9nez-rocha-881b171b9/)  
+- [Portafolio](https://github.com/JefJim)
 
